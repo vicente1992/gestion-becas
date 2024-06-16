@@ -73,5 +73,4 @@ export class UploadFileComponent {
     return this.fileExtensions().includes(extension);
   }
 
-  // PNG, JPG, GIF
 }

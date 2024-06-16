@@ -26,7 +26,8 @@ export default class LoginComponent {
   });;
 
   login() {
-    this.#authService.login(this.form.value).subscribe(() => this.goToHome());
+    this.#authService.login(this.form.value)
+      .subscribe(() => this.goToHome());
   }
 
   goToHome() {
