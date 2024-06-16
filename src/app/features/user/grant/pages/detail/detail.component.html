@@ -1,0 +1,19 @@
+<div class="py-24 sm:py-4 h-full">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl">
+            <a class="text-3xl cursor-pointer" [routerLink]="['']">
+                <i class="ri-arrow-left-line"></i>
+            </a>
+        </div>
+    </div>
+    @if (grantExist()) {
+    <app-grant-detail [grant]="grant()"></app-grant-detail>
+    }@else {
+    <div class="text-center">
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ">
+            No existen datos para mostrar
+        </p>
+    </div>
+    }
+
+</div>

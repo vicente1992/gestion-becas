@@ -1,0 +1,13 @@
+<section class="modal-container flex flex-col items-center justify-center p-5 gap-5">
+    <div>
+        <span class="text-lg text-bloom">¿Estás seguro de realizar esta operación?</span>
+    </div>
+    <div class="flex gap-5">
+        <button [mat-dialog-close]="false" type="button" class="btn btn-outline btn-ghost">
+            Cancelar
+        </button>
+        <button [mat-dialog-close]="true" type="button" class="btn btn-primary">
+            Aceptar
+        </button>
+    </div>
+</section>

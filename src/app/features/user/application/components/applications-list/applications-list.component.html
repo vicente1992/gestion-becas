@@ -1,0 +1,36 @@
+<div class="overflow-x-auto">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Indentificación</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of applications(); track item._id) {
+      <tr>
+        <td>{{item.title }}</td>
+        <td>{{item.userName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.documentNumber}}</td>
+        <td>
+          <span class="badge " [ngClass]="{
+            'badge-success text-white': item.status === 'approved',
+             'badge-error text-white': item.status === 'rejected',
+             'badge-warning text-black': item.status === 'pending' || item.status === 'underReview',
+              
+             }">
+            {{item.status | aplicationStatus}}
+          </span>
+        </td>
+
+
+      </tr>
+      }
+
+    </tbody>
+  </table>
+</div>

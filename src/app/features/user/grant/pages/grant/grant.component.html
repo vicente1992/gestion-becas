@@ -1,0 +1,16 @@
+<div class=" py-6 sm:py-4">
+    <div class="mx-auto  px-6">
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Becas vigentes</h1>
+    </div>
+    <div class="mx-auto  px-6 my-5">
+        <app-filter (filter)="onFilter($event)"></app-filter>
+    </div>
+    <div class="mx-auto  px-6  ">
+        <div
+            class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-gray-200 pt-10 sm:mt-4 sm:pt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
+            @for (item of grants(); track item._id) {
+            <app-card-grant [grant]="item"></app-card-grant>
+            }
+        </div>
+    </div>
+</div>

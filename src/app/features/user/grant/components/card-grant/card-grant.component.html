@@ -1,0 +1,33 @@
+<article class="flex max-w-xl flex-col grant()s-start justify-between card bg-base-100 p-4 max-h-96">
+    <div class="cursor-pointer" [routerLink]="[ grant()._id]">
+        <img [src]="grant().logo" [alt]="grant().title" class="w-full   max-h-32">
+    </div>
+    <div class="flex items-center gap-x-4 text-xs mt-5">
+        <time datetime="2020-03-16">
+            <span class="font-semibold ">
+                Fecha de publicación
+            </span>
+            {{grant().initialDate| date: 'MMMM d, y' }}
+
+        </time>
+        <a class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+            {{grant().levelEducation}}
+        </a>
+        <span class="badge text-white" [ngClass]="{'badge-success': grant().isActive, 'badge-error': !grant().isActive}">
+            {{grant().isActive ? 'Vigente' : 'Cerrada'}}
+        </span>
+    </div>
+    <div class="group relative">
+        <h3 class="mt-3 text-sm font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <span>
+                <span class="absolute inset-0"></span>
+                {{grant().title}}
+            </span>
+        </h3>
+    </div>
+    
+    <div class="flex items-center justify-center my-3">
+        <button type="button" class="btn btn-primary btn-sm text-sm btn-block" (click)="openModal(grant())">Aplicar</button>
+
+    </div>
+</article>

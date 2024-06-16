@@ -1,0 +1,35 @@
+<div class="sidebar-gap">
+    <div class="sidebar bg-ground flex">
+        <ul class="sidebar-menu grow-0">
+            <li class="sidebar-item flex justify-center items-center my-5">
+                <div class="sidebar-bell">
+                    <i class="ri-notification-line"></i>
+                </div>
+            </li>
+        </ul>
+        <ul class="sidebar-menu grow">
+            @for (item of menu(); track $index) {
+            <li routerLinkActive="active" class="sidebar-item flex justify-center" [routerLink]="item.path"
+                [routerLinkActiveOptions]="{exact: true}"
+                [matTooltip]="item.tooltip"
+                [matTooltipPosition]="'right'"
+                >
+                <div class="sidebar-button flex justify-center">
+                    <i [className]="item?.icon"></i>
+                </div>
+            </li>
+
+            }
+        </ul>
+        <ul class="sidebar-menu grow-0">
+            <li class="sidebar-footer sidebar-item">
+                <div class="sidebar-separator"></div>
+            </li>
+            <li class="sidebar-item flex justify-center" (click)="logout()">
+                <div class="sidebar-button flex justify-center">
+                    <i class="ri-logout-circle-line"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

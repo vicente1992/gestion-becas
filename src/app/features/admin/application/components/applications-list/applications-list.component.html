@@ -1,0 +1,53 @@
+<div class="overflow-x-auto">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Indentificación</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of applications(); track item._id) {
+      <tr>
+        <td>{{item.title }}</td>
+        <td>{{item.userName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.documentNumber}}</td>
+        <td>
+          <span class="badge " [ngClass]="{
+            'badge-success text-white': item.status === 'approved',
+             'badge-error text-white': item.status === 'rejected',
+             'badge-warning text-black': item.status === 'pending' || item.status === 'underReview',
+              
+             }">
+            {{item.status |aplicationStatus}}
+          </span>
+        </td>
+        <td>
+          <div class="flex items-center gap-3">
+            <button (click)="downloadDocument(item.document)"
+              class="bg-transparent text-secondary text-xl cursor-pointer" matTooltip="Descargar documento"
+              [matTooltipPosition]="'above'">
+              <i class="ri-file-download-line"></i>
+            </button>
+            @if (item.status === 'pending') {
+            <button (click)="update(item, 'approved')" class="bg-transparent text-success text-xl cursor-pointer"
+              matTooltip="Aprovar" [matTooltipPosition]="'above'">
+              <i class="ri-check-line"></i>
+            </button>
+            <button (click)="update(item, 'rejected')" class="bg-transparent  text-red-400  text-xl cursor-pointer"
+              matTooltip="Rechazar" [matTooltipPosition]="'above'">
+              <i class="ri-close-fill"></i>
+            </button>
+            }
+          </div>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,41 @@
+<form [formGroup]="form">
+  <div class="grid grid-cols-12 gap-4 items-center">
+    <div class="col-span-12 md:col-span-4 lg:col-span-4">
+      <label for="first-name" class="form-label">Titulo o Requisito</label>
+      <div class="mt-2">
+        <input class="input input-bordered w-full md:max-w-xl max-h-8" placeholder="Buscar por titulo o requisitos"
+          formControlName="title">
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-4 lg:col-span-3">
+      <label for="first-name" class="form-label">Nivel de Educación</label>
+      <div class="mt-2">
+        <select class="select select-bordered form-control w-full md:max-w-xl select-sm"
+          formControlName="levelEducation">
+          <option disabled selected>Selecciona un nivel de educación </option>
+          @for (item of levelsEducations(); track item._id) {
+          <option [value]="item._id">{{item.name}}</option>
+          }
+        </select>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-4 lg:col-span-3">
+      <label for="first-name" class="form-label">Estado</label>
+      <div class="mt-2">
+        <select class="select select-bordered form-control w-full md:max-w-xl select-sm" formControlName="status">
+          <option disabled selected>Selecciona un estado </option>
+          <option [value]="true">Vigentes</option>
+          <option [value]="false">Cerradas</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-2 lg:col-span-2">
+      <div class="flex items-center gap-2 md:mt-8">
+        <button (click)="resetForm()" type="button"
+          class="bg-transparent text-gray-500 hover:text-white hover:bg-gray-700 transition duration-300 rounded-full btn-sm  h-10 w-10 flex items-center justify-center">
+          <i class="ri-filter-off-line text-lg "></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

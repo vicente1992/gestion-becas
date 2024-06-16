@@ -1,0 +1,19 @@
+<section>
+  <div class="my-5">
+    <h1 class="text-3xl font-bold"> Aplicaciones a becas</h1>
+  </div>
+  <div class="card bg-base-100 shadow-md p-5 flex flex-col gap-5 rounded-md">
+    <div class="flex items-center gap-2">
+      <app-filter (filter)="onFilter($event)"></app-filter>
+      <button (click)="downloadExcel()" type="button"
+        class="bg-transparent text-gray-500 hover:text-white hover:bg-gray-700 transition duration-300 rounded-full btn-sm  h-10 w-10 flex items-center justify-center md:mt-8 text-xl">
+        <i class="ri-file-excel-line"></i>
+      </button>
+
+    </div>
+    <app-applications-list [applications]="applications()" (onLoad)="onLoad()"></app-applications-list>
+    <div class="flex justify-end my-4">
+      <app-pagination [totalPages]="totalPages()" (pagination)="onPagination($event)"></app-pagination>
+    </div>
+  </div>
+</section>

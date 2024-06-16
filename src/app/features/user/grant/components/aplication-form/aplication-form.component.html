@@ -1,0 +1,39 @@
+<div class="bg-white rounded shadow-md p-2 min-w-full md:min-w-[500px] max-w-full md:max-w-[500px]">
+  <section class="flex flex-row items-center justify-between px-5 py-3 border-b  border-opacity-5  border-gray-900/10">
+    <h2 class="text-gray-900 block text-lg font-medium leading-6">Formulario de aplicación a becas</h2>
+    <button mat-dialog-close class="icon btn-close text-xl">
+      <i class="ri-close-line"></i>
+    </button>
+  </section>
+  <section class="flex flex-col px-5 py-5 md:flex-col w-full gap-4">
+    <form class="w-full " [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="colum-form">
+        <label for="first-name" class="form-label">Número de documento</label>
+        <div class="mt-2">
+          <input class="input input-bordered w-full md:min-w-xl" formControlName="documentNumber">
+        </div>
+      </div>
+      <div class="grid-form">
+        <div class="colum-form hidden">
+          <div class="mt-2">
+            <input type="text" class="form-control" formControlName="document">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-full">
+        <label for="last-name" class="form-label">Documentación requerida</label>
+        <app-upload-file (file)="onFile($event)" [fileExtensions]="fileExtensions()"></app-upload-file>
+      </div>
+      <div class="flex justify-end gap-3 pt-7">
+        <button mat-dialog-close type="button" class="button-secundary">
+          Cancelar
+        </button>
+        <button type="submit" class="button-primary">
+          Guardar
+        </button>
+      </div>
+
+    </form>
+  </section>
+</div>

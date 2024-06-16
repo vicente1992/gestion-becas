@@ -1,0 +1,29 @@
+/**
+** Colors variables
+* */
+
+$family-primary: "Poppins",
+    sans-serif;
+$family-secondary: "Poppins",
+    sans-serif;
+$color-primary: #005154;
+$border-radius-primary: 0.75rem;
+$border-color-1: #e3e3e3;
+$border-radius-secondary: 1.5rem;
+$font-size-regular: 1rem;
+$font-size-big: 1.5rem;
+$transition-time-primary: 150ms;
+$transition-time-secondary: 250ms;
+$font-weight-light: 300;
+$font-weight-regular: 500;
+$font-weight-bolder: 600;
+
+$filter-shadow-danger: drop-shadow(2px 4px 6px rgba(255, 143, 143, 1));
+$box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-primary: 0px 3px 29px -10px rgba(33, 121, 171, 1);
+
+/** Common **/
+$color-white: white;
+$color-status-overdue: #e93751;
+$color-status-pending: #ffc107;
+$color-status-paid: #30a032;

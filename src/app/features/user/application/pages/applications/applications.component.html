@@ -1,0 +1,11 @@
+<section>
+    <div class="my-5">
+        <h1 class="text-3xl font-bold">Mis Aplicaciones</h1>
+    </div>
+    <div class="card bg-base-100 shadow-md p-5 flex flex-col gap-5 rounded-md">
+        <app-applications-list [applications]="applications()"></app-applications-list>
+        <div class="flex justify-end my-4">
+            <app-pagination [totalPages]="totalPages()" (pagination)="onPagination($event)"></app-pagination>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+.mat-elevation-z8,
+.mat-mdc-elevation-specific.mat-elevation-z8 {
+    box-shadow: $box-shadow;
+    width: 180px;
+    padding: 0.625rem;
+    border-radius: 10px;
+
+}
+
+.mat-calendar-body-selected {
+    background-color: $color-primary !important;
+    color: $color-white !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    border-radius: 9px;
+}
+
+.mat-calendar-body-in-range::before {
+    background-color: #e8f0f0 !important;
+
+}
+
+.mat-datepicker-toggle-active {
+    color: $color-primary !important;
+}

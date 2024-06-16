@@ -1,0 +1,81 @@
+<div class="bg-white rounded shadow-md p-2 min-w-full md:min-w-[500px] max-w-full md:max-w-[500px]">
+    <section
+        class="flex flex-row items-center justify-between px-5 py-3 border-b  border-opacity-5  border-gray-900/10">
+        <h2 class="text-gray-900 block text-lg font-medium leading-6">Formulario de becas</h2>
+        <button mat-dialog-close class="icon btn-close text-xl">
+            <i class="ri-close-line"></i>
+        </button>
+    </section>
+    <section class="flex flex-col px-5 py-5 md:flex-col w-full gap-4">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="grid-form">
+                <div class="colum-form">
+                    <label for="first-name" class="form-label">Titulo</label>
+                    <div class="mt-2">
+                        <input class="input input-bordered w-full md:max-w-xl" formControlName="title">
+
+                    </div>
+                </div>
+                <div class="colum-form">
+                    <label for="last-name" class="form-label">Categoria</label>
+                    <div class="mt-2">
+                        <select formControlName="levelEducation"
+                            class="select select-bordered form-control w-full md:max-w-xl">
+                            <option disabled selected>Selecciona una categoria </option>
+                            @for (item of levelsEducations(); track item._id) {
+                            <option [value]="item._id">{{item.name}}</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-form">
+                <div class="colum-form">
+                    <label for="first-name" class="form-label">Fecha Apertura</label>
+                    <div class="mt-2">
+                        <input type="date" class="input input-bordered w-full md:max-w-xl"
+                            formControlName="initialDate">
+                    </div>
+                </div>
+                <div class="colum-form">
+                    <label for="last-name" class="form-label">Fecha Cierre</label>
+                    <div class="mt-2">
+                        <input type="date" class="input input-bordered w-full md:max-w-xl" formControlName="dateEnd">
+                    </div>
+                </div>
+            </div>
+            <div class="grid-form">
+                <div class="colum-form hidden">
+                    <label for="first-name" class="form-label">Logo</label>
+                    <div class="mt-2">
+                        <input type="text" class="form-control" formControlName="logo">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="last-name" class="form-label">Requisitos</label>
+                <div class="mt-2">
+                    <textarea class="textarea textarea-bordered w-full" placeholder="Bio"
+                        formControlName="requirements"></textarea>
+                </div>
+            </div>
+            <div class="col-span-full">
+                <label for="last-name" class="form-label">Logo</label>
+                <app-upload-file [fileUrl]="logoUrl()" (file)="onFile($event)"
+                    [fileExtensions]="fileExtensions()"></app-upload-file>
+            </div>
+
+            <div class="flex justify-end gap-3 py-7">
+                <button mat-dialog-close type="button" class="button-secundary">
+                    Cancelar
+                </button>
+                <button type="submit" class="button-primary">
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+</div>

@@ -1,0 +1,53 @@
+<div class="overflow-x-auto">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>logo</th>
+                <th>Titulo</th>
+                <th>Nivel De Educación</th>
+                <th>Requisitos</th>
+                <th>Estado</th>
+                <th>Fecha Apertura</th>
+                <th>Fecha Cierre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of grants(); track item._id) {
+            <tr>
+                <th>
+                    <div class="avatar ">
+                        <div class="w-12 rounded-full  ">
+                            <img [src]="item.logo" [alt]=" item.title" />
+                        </div>
+                    </div>
+                </th>
+                <td>{{item.title}}</td>
+                <td>{{item.levelEducation}}</td>
+                <td>{{item.requirements | slice: 0:50}}</td>
+                <td>
+                    <span class="badge text-white"
+                        [ngClass]="{'badge-success': item.isActive, 'badge-error': !item.isActive}">
+                        {{item.isActive ? 'Vigente' : 'Cerrada'}}
+                    </span>
+                </td>
+                <td>{{item.initialDate | date: 'MMMM d, y'}}</td>
+                <td>{{item.dateEnd | date: 'MMMM d, y'}}</td>
+                <td>
+                    <div class="flex items-center gap-3">
+                        <button (click)="openModal(item)" class="bg-transparent text-black text-xl cursor-pointer">
+                            <i class="ri-pencil-line"></i>
+                        </button>
+                        <button (click)="deleteGrant(item._id)"
+                            class="bg-transparent  text-red-400  text-xl cursor-pointer">
+                            <i class="ri-delete-bin-line"></i>
+                        </button>
+
+                    </div>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
